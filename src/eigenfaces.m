@@ -7,7 +7,7 @@ close all;
 
 %% Data extraction
 % Training set
-adr = './database/training1/';
+adr = '../database/training1/';
 fld = dir(adr);
 nb_elt = length(fld);
 
@@ -110,16 +110,8 @@ for i=1:nc*nl-1
     axis off
 end
 %%
-% % Pour afficher les n eigenfaces
-% figure,
-% for i=1:N-1
-%     subplot(nl,nc,i)
-%     imagesc(reshape(U(:,i), h,w))
-%     colormap('gray');
-%    
-% end
-%%
-% QST 3
+
+
 l = 59;
 n_elements = 6; 
  data_x = zeros(P, n_elements);
@@ -139,10 +131,6 @@ for j=1:n_elements
         data_reconstruite(:,j) = data_reconstruite(:,j) + (U(:,i)'*(data_x(:,j)-moyenne))*U(:,i);
     end
 end
- 
-
-
-% data_reconstruite = (U/V + moyenne)*sqrt(N);
 
 figure,
 for i=1:n_elements
@@ -165,7 +153,7 @@ figure,
 imagesc(reshape(data_reconstruite(:,1), [h,w]));
 colormap('gray')
 
-% Remarque : jsp
+% Remarque : jsp (:)(:):D
 
 %%
 % QST 4
@@ -213,7 +201,7 @@ legend();
 
 %% Data extraction
 % Test set
-adr = './database/test2/';
+adr = '../database/test2/';
 fld = dir(adr);
 nb_elt = length(fld);
 
@@ -320,21 +308,6 @@ dim_opti = (1 -err_knn_b) < 0.90;
 
 
 %%
-% elements_class = [];
-% 
-% for i=PHI+1:PHI+N/m
-%     if fld(i).isdir == false
-%         img = double(imread([adr fld(i).name]));
-%         elements_class = [elements_class img(:)];
-%     end
-% end
-% 
-% F_class = zeros(192,168*max(size_cls_trn));
-% 
-%     for j=1:size_cls_trn(1)
-%           
-%           F_class(:,168*(j-1)+1:168*j) = reshape(elements_class(:,j),[192,168]);
-%     end
 
 F_class = F(h*(PHI-1)+1:h*PHI,:);
 figure
@@ -358,11 +331,6 @@ for i=1:N_tst
 end
 %%
 [mat_confusion_knn, err_knn] = confmat(lb_tst, x_pred)
-
-
-
-% mes qst: on a que n val propres (la derniere nulle) de R, elles sont où 
-% les p-n val propres restantes
 
 %% Classifieur gaussien
 %%%% remarques: pour (2,3) changer U(:,i:j) pour U_util

@@ -1,3 +1,7 @@
+# Apprentissage statistique pour la reconnaissance faciale 
+
+
+
 Authors : 
 -----------------------------------------------
 --Oumaima Wankida

@@ -1,8 +1,9 @@
 Authors : 
 -----------------------------------------------
--Oumaima Wankida
--Oumaima Najib
--Karima Squalli Houssaini
+--Oumaima Wankida
+--Karima Squalli Houssaini
+--Oumaima Najib
+
 
 
 Supervisor : 
